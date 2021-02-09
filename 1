@@ -1,0 +1,50 @@
+1. To Change any of the commit message
+    1.1 git rebase --interactive --root
+    1.2 {put reword where to change name}
+    1.3 {change name in the new window}
+
+2. Filtering commits using word
+    2.1 git log --grep="add"
+
+3. Discard everything and take to last commit
+    3.1 git reset --hard
+
+4. Pretty print the git log
+    4.1 git log --pretty=format:"%h %ar %s"
+    ~%h(hashID), %ar(time), %s(message)~
+
+5. To pull changes done in remote 
+    5.1 git pull
+    Above command is actually ~git fetch + git merge~
+
+6. Revert back to last command
+    6.1 git revert HEAD
+    ~ How many commits can be mentioned HEAD~2 (last 2nd) ~
+
+7. Change last commit Message
+    7.1 git commit -amend
+
+8. Combine set of commits as a single commit
+    8.1 git rebase --interactive HEAD~8
+    ~ put 'r' for rebase and first one as pick to merge rest to it~
+    ~ it will ask for the merged commit name ~ 
+
+9. Reorder commits
+    8.1 git rebase --interactive HEAD~2
+    ~ Just reorder the commits~
+
+10. Break a commit into smaller commits
+    10.1 git rebase --interactive HEAD~1
+    10.2 git reset HEAD^
+    ~ Above line removes last commit but the changes done are not deleted! They are untracked~
+    ~ Now just add the files and commit ~
+    10.3 git rebase --continue
+
+11. Remove all changes and keep them stored somewhere
+    11.1 git stash
+    ` rolled back to latest commit `
+    ` Now if you want the stashed changes back `
+    11.2 git list
+    ` This will show the list of stash `
+    11.3 git stash apply stack@{3}
+    ` if you don't apply stash id, latest stash will be applied  `
